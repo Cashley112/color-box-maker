@@ -10,10 +10,19 @@ class BoxList extends Component {
             boxArray: []
         };
         this.addBox = this.addBox.bind(this);
+        this.removeBox = this.removeBox.bind(this);
     }
     addBox(box) {
         this.setState(state => ({
             boxArray: [...state.boxArray, {...box, id: uuidv4()}]
+        }))
+    }
+    removeBox(boxId) {
+        let newBoxArray = this.state.boxArray.filter(box => (
+            box.id !== boxId
+        ))
+        this.setState(state => ({
+            boxArray: newBoxArray
         }))
     }
     render () {
@@ -27,6 +36,7 @@ class BoxList extends Component {
                     <Box 
                     boxStyles={{box}}
                     key={box.id}
+                    removeBox={this.removeBox}
                     />
                 ))}
             </div>
