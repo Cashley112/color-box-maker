@@ -4,7 +4,7 @@ import './BoxForm.css'
 class BoxForm extends Component {
     constructor(props) {
         super(props);
-        this.state = { height: 0, width: 0, bgColor: "" };
+        this.state = { height: "", width: "", backgroundColor: "" };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -15,7 +15,8 @@ class BoxForm extends Component {
     }
     handleSubmit(evt) {
         evt.preventDefault();
-        this.setState({ height: 0, width: 0, bgColor: "" });
+        this.props.addBox(this.state);
+        this.setState({ height: "", width: "", backgroundColor: "" });
     }
     render () {
         return (
@@ -34,11 +35,12 @@ class BoxForm extends Component {
                     value={this.state.width}
                     onChange={this.handleChange}
                 />
-                <label htmlFor="bgColor">Background Color: </label>
+                <label htmlFor="backgroundColor">Background Color: </label>
                 <input 
-                    id="bgColor"
-                    name="bgColor"
-                    value={this.state.bgColor}
+                    type='color'
+                    id="backgroundColor"
+                    name="backgroundColor"
+                    value={this.state.backgroundColor}
                     onChange={this.handleChange}
                 />
                 <button>Render Box</button>
