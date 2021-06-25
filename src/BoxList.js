@@ -24,7 +24,10 @@ class BoxList extends Component {
                     addBox={this.addBox}
                 />
                 {this.state.boxArray.map(box => (
-                    <Box boxStyles={{box}}/>
+                    <Box 
+                    boxStyles={{box}}
+                    key={box.id}
+                    />
                 ))}
             </div>
         )

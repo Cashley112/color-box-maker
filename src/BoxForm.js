@@ -37,7 +37,6 @@ class BoxForm extends Component {
                 />
                 <label htmlFor="backgroundColor">Background Color: </label>
                 <input 
-                    type='color'
                     id="backgroundColor"
                     name="backgroundColor"
                     value={this.state.backgroundColor}
